@@ -1,0 +1,30 @@
+def task1(lst):
+    x = 0
+    y = 1
+    smin = lst[x] + lst[y]
+    for i in range(1, len(lst)-1):
+        s = lst[i] + lst[i+1]
+        if s <= smin:
+            x, y = i, i+1
+            smin = s
+    return x, y
+if task1([0, 1, 2, 3]) == (0, 1):
+    print('1+')
+else:
+    print('1- для списка [0, 1, 2, 3]')
+if task1([0, 0, 0, 0]) == (2, 3):
+    print('2+')
+else:
+    print('2- для списка [0, 0, 0, 0]')
+if task1([0, -1, -2, -3]) == (2, 3):
+    print('3+')
+else:
+    print('3- для списка [-4, -1, -2, -3]')
+if task1([-10, 50, 0, 15]) == (2, 3):
+    print('4+')
+else:
+    print('4- для списка [-10, 50, 0, 15]')
+if task1([10000, -87888, 344, 5000]) == (1, 2):
+    print('5+')
+else:
+    print('5- для списка [10000, -87888, 344, 5000]')
